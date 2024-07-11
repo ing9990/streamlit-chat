@@ -31,7 +31,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-key = os.getenv("OPENAI_API_KEY")
+key = st.secrets["OPENAI_API_KEY"]
    
 st.set_page_config(page_title=" AI투자상담 통통선생", page_icon="🍅")
 st.title("🍅 AI 투자상담 통통선생")
