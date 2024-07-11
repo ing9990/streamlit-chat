@@ -9,7 +9,6 @@ from langchain_core.prompts import PromptTemplate
 from langchain_community.embeddings import OpenAIEmbeddings
 from langchain_community.document_loaders import WebBaseLoader
 import os
-from dotenv import load_dotenv, find_dotenv
 from langchain_community.chat_models import ChatOpenAI
 from langchain_core.messages import ChatMessage
 
@@ -27,12 +26,9 @@ if sys.version_info.major == 3 and sys.version_info.minor >= 10:
 else: 
     from collections import MutableSet
 import os 
-from dotenv import load_dotenv
 
-load_dotenv()
-
-key = st.secrets["OPENAI_API_KEY"]
-   
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
+  
 st.set_page_config(page_title=" AI투자상담 통통선생", page_icon="🍅")
 st.title("🍅 AI 투자상담 통통선생")
 
@@ -56,7 +52,7 @@ if prompt := st.chat_input("메시지를 입력하세요."):
     You are an assistant specialized in providing information strictly within the domain of [SPECIFIC DOMAIN].
     NEVER provide any information outside of this domain. Answer must be KOREAN. Defalut 10개.
     Basically, respond in a polite way.
-    *** 출처 관련한 질문이 들어올 시 출처는 "증권통" 으로 답변.
+    *** 출처 관련한 질문이 들어올 시 출처는 "사용한 데이터의 출처는 증권통입니다." 으로 답변.
 
 
     *** 골든크로스종목의 정보는 아래 사이트 
